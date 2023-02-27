@@ -25,8 +25,14 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="rIv-Pj-4LH">
                                 <rect key="frame" x="16" y="59" width="361" height="759"/>
                                 <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Score: 0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NSi-df-rbB" userLabel="Score Label">
+                                        <rect key="frame" x="0.0" y="0.0" width="361" height="66"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="Question Text" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rSI-li-mhO">
-                                        <rect key="frame" x="0.0" y="0.0" width="361" height="559"/>
+                                        <rect key="frame" x="0.0" y="76" width="361" height="483"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -88,6 +94,7 @@
                         <outlet property="falseButton" destination="tbn-vQ-GyC" id="e5I-hD-fM8"/>
                         <outlet property="progressBar" destination="TXm-qh-7Xg" id="p6K-xE-QDf"/>
                         <outlet property="questionLabel" destination="rSI-li-mhO" id="Exe-o7-wzO"/>
+                        <outlet property="scoreLabel" destination="NSi-df-rbB" id="wOo-Ix-jz1"/>
                         <outlet property="trueButton" destination="oVw-Hl-IRe" id="Zcl-4Q-qWW"/>
                     </connections>
                 </viewController>
