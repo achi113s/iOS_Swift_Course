@@ -44,12 +44,12 @@ class CalculatorViewController: UIViewController {
     }
     
     @IBAction func calculatePressed(_ sender: UIButton) {
-        let bill = Float(billTextField.text ?? "0.0")!
-        let splitNum = Float(splitNumberLabel.text ?? "2")!
-    
-        calculatorBrain.calculateSplitTotal(total: bill, tip: tip, splitNumber: splitNum)
-        
-        self.performSegue(withIdentifier: "goToResult", sender: self)
+        let bill = billTextField.text ?? "0.0"
+        if bill != "" {
+            let splitNum = Float(splitNumberLabel.text ?? "2")!
+            calculatorBrain.calculateSplitTotal(total: Float(bill)!, tip: tip, splitNumber: splitNum)
+            self.performSegue(withIdentifier: "goToResult", sender: self)
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
