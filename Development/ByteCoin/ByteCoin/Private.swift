@@ -9,5 +9,5 @@
 import Foundation
 
 struct PrivateAPI {
-    let coinAPIKey: String = ""
+    let coinAPIKey: String = "test"
 }
