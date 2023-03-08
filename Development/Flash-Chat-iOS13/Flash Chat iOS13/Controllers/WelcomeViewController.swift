@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import GhostTypewriter
 
 class WelcomeViewController: UIViewController {
 
@@ -15,7 +16,17 @@ class WelcomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        /* Three lines below are to use GhostTypeWriter.
+         Make sure to change titleLabel type above to TypeWriterLabel
+         and set UILabel custom class to GhostTypewriter in the Interface
+         Builder.twit
+        */
+        
+//        titleLabel.typingTimeInterval = 0.2
+//        titleLabel.startTypewritingAnimation()
+//        cursorView.alpha = 0.0
+        
         titleLabel.text = ""
         let titleText = "⚡️FlashChat"
         var charIndex = 0.0
@@ -28,7 +39,7 @@ class WelcomeViewController: UIViewController {
             charIndex += 1.0
         }
         
-        Timer.scheduledTimer(withTimeInterval: 2, repeats: false) { (timer) in
+        Timer.scheduledTimer(withTimeInterval: 2.2, repeats: false) { (timer) in
             self.cursorView.flash(numberOfFlashes: 10000.0)
             timer.invalidate()
         }

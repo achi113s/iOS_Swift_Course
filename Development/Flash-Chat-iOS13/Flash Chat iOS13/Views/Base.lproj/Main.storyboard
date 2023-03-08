@@ -56,12 +56,11 @@
                                     <segue destination="BYZ-38-t0r" kind="show" id="o9F-gu-2U2"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yi7-Qq-5Wo" userLabel="Cursor">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yi7-Qq-5Wo">
                                 <rect key="frame" x="350.33333333333331" y="396" width="3" height="60"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="3" id="DWW-Uf-HYU"/>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="3" id="pw1-gW-adL"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -83,7 +82,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="Keg-y1-189"/>
                     <connections>
-                        <outlet property="cursorView" destination="Yi7-Qq-5Wo" id="MvN-aI-VfL"/>
+                        <outlet property="cursorView" destination="Yi7-Qq-5Wo" id="HjC-3n-4a9"/>
                         <outlet property="titleLabel" destination="y7D-jv-BlJ" id="7U9-Ah-qfi"/>
                     </connections>
                 </viewController>
