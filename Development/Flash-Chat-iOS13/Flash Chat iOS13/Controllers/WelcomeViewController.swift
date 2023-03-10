@@ -30,16 +30,18 @@ class WelcomeViewController: UIViewController {
         titleLabel.text = ""
         let titleText = "⚡️FlashChat"
         var charIndex = 0.0
+        let titleTextSpeed = 0.2
 
         for letter in titleText {
-            Timer.scheduledTimer(withTimeInterval: 0.2 * charIndex, repeats: false) { (timer) in
+            Timer.scheduledTimer(withTimeInterval: titleTextSpeed * charIndex, repeats: false) { (timer) in
                 self.titleLabel.text?.append(letter)
                 timer.invalidate()
             }
             charIndex += 1.0
         }
         
-        Timer.scheduledTimer(withTimeInterval: 2.2, repeats: false) { (timer) in
+        let waitToBlinkCursor = (titleTextSpeed * Double(titleText.count)) + titleTextSpeed
+        Timer.scheduledTimer(withTimeInterval: waitToBlinkCursor, repeats: false) { (timer) in
             self.cursorView.flash(numberOfFlashes: 10000.0)
             timer.invalidate()
         }
