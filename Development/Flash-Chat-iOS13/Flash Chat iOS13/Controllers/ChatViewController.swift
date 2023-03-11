@@ -22,7 +22,6 @@ class ChatViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = K.appName
         navigationItem.hidesBackButton = true
         
         tableView.delegate = self
@@ -48,6 +47,9 @@ class ChatViewController: UIViewController {
                     }
                     DispatchQueue.main.async {
                         self.tableView.reloadData()
+                        
+                        let indexPath = IndexPath(row: self.messages.count - 1, section: 0)
+                        self.tableView.scrollToRow(at: indexPath, at: .top, animated: false)
                     }
                 }
             }
@@ -65,7 +67,6 @@ class ChatViewController: UIViewController {
     
     @IBAction func sendPressed(_ sender: UIButton) {
         if let messageBody: String = messageTextfield.text, let messageSender: String = Auth.auth().currentUser?.email {
-            messageTextfield.text = ""
             var ref: DocumentReference? = nil
             ref = db.collection(K.FStore.collectionName).addDocument(data: [
                 K.FStore.senderField : messageSender,
@@ -75,6 +76,9 @@ class ChatViewController: UIViewController {
                 if let err = err {
                     print("Error adding document: \(err)")
                 } else {
+                    DispatchQueue.main.async {
+                        self.messageTextfield.text = ""
+                    }
                     print("Document added with ID: \(ref!.documentID)")
                 }
             }
@@ -90,8 +94,23 @@ extension ChatViewController: UITableViewDataSource {  // protocol for populatin
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let message = messages[indexPath.row]
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: K.cellIdentifier, for: indexPath) as! MessageCell
         cell.label.text = messages[indexPath.row].body
+        
+        if message.sender == Auth.auth().currentUser?.email {
+            cell.leftImageView.isHidden = true
+            cell.rightImageView.isHidden = false
+            cell.messageBubble.backgroundColor = UIColor(named: K.BrandColors.lightPurple)
+            cell.label.textColor = UIColor(named: K.BrandColors.purple)
+        } else {
+            cell.leftImageView.isHidden = false
+            cell.rightImageView.isHidden = true
+            cell.messageBubble.backgroundColor = UIColor(named: K.BrandColors.purple)
+            cell.label.textColor = UIColor(named: K.BrandColors.lightPurple)
+        }
+        
         return cell
     }
 }
