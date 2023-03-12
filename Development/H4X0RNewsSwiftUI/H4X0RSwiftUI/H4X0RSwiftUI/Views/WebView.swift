@@ -5,7 +5,6 @@
 //  Created by Giorgio Latour on 3/12/23.
 //
 
-import Foundation
 import WebKit
 import SwiftUI
 
